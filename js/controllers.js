@@ -1,5 +1,5 @@
-myApp.controller("HeaderCtrl", ['$scope', '$location', 'UserAuthFactory',
-  function($scope, $location, UserAuthFactory) {
+myApp.controller("HeaderCtrl", ['$scope', '$rootScope','$location', 'UserAuthFactory',
+  function($scope,$rootScope, $location, UserAuthFactory) {
 
     $scope.isActive = function(route) {
       return route === $location.path();
@@ -8,6 +8,7 @@ myApp.controller("HeaderCtrl", ['$scope', '$location', 'UserAuthFactory',
     $scope.logout = function () {
       UserAuthFactory.logout();
     }
+
   }
 ]);
 

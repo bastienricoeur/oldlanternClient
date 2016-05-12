@@ -27,6 +27,12 @@ myApp.config(function($routeProvider, $httpProvider) {
     access: {
       requiredLogin: true
     }
+  }).when('/majprofil', {
+    templateUrl: 'partials/updateprofil.html',
+    controller: 'MyProfilCtrl',
+    access: {
+      requiredLogin: true
+    }
   }).when('/page2', {
     templateUrl: 'partials/page2.html',
     controller: 'Page2Ctrl',
@@ -43,7 +49,7 @@ myApp.config(function($routeProvider, $httpProvider) {
     redirectTo: '/login'
   });
 });
-myApp.run(function($rootScope, $window, $location, AuthenticationFactory) {
+myApp.run(function($rootScope, $window, $location, AuthenticationFactory,GetProfil) {
   // when the page refreshes, check if the user is already logged in
   AuthenticationFactory.check();
   $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
@@ -55,12 +61,31 @@ myApp.run(function($rootScope, $window, $location, AuthenticationFactory) {
       if (!AuthenticationFactory.userRole) AuthenticationFactory.userRole = $window.sessionStorage.userRole;
     }
   });
+  
   $rootScope.$on('$routeChangeSuccess', function(event, nextRoute, currentRoute) {
     $rootScope.showMenu = AuthenticationFactory.isLogged;
     $rootScope.role = AuthenticationFactory.userRole;
+    $rootScope.admin=false;
     // if the user is already logged in, take him to the home page
     if (AuthenticationFactory.isLogged == true && $location.path() == '/login') {
       $location.path('/');
     }
+    if(AuthenticationFactory.isLogged)
+    {
+      GetProfil.getProf().then(function(data) {
+        if(data.data.data.attribute.role=="admin")
+        {
+          $rootScope.admin=true;
+        }
+        else {
+          $rootScope.admin=false;
+        }
+
+      });
+    }
+    else {
+      $rootScope.admin=false;
+    }
   });
+
 });
