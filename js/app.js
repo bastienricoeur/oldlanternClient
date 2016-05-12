@@ -1,5 +1,5 @@
 var myApp = angular.module('ngclient', ['ngRoute']);
-myApp.constant('APPLINK','https://oldlantern.herokuapp.com');
+myApp.constant('APPLINK','https://109.30.180.96:2771');
 myApp.config(function($routeProvider, $httpProvider) {
   $httpProvider.interceptors.push('TokenInterceptor');
   $routeProvider

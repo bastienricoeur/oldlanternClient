@@ -687,18 +687,100 @@ a
 .panelHLProf
 {
   width: 50%;
-  background-color: blue;
 }
 
 .panelHRProf
 {
   width: 50%;
-  background-color: red;
 }
 
-#contenerInfoProfil
+#contenerProfil
 {
-  
+  color: #353f55;
+  width: 100%;
+  text-align: center;
+  margin-top: 70px;
+}
+
+#contenerProfil span
+{
+  font-size: 44px;
+  font-family: "LobsterTwo";
+}
+
+#contenerProfil hr
+{
+  height: 2px;
+  background-color: #b4dbbf;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+#contenuInfoProfil
+{
+  margin-top: 50px;
+  margin-left: 150px;
+  text-align: left;
+
+}
+
+
+#contenuInfoProfil hr
+{
+  margin: 0;
+  margin-bottom: 10px;
+  width: 40px;
+}
+
+.labelInfo
+{
+    font-size: 25px;
+    font-family: "LobsterTwo";
+}
+
+.contInfo
+{
+    font-size: 19px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    font-family: "Hallo Sans", Helvetica, Arial, sans-serif;
+}
+
+#contenerButtonProfil
+{
+  margin-top: 200px;
+}
+
+.buttonProfil
+{
+  text-align: center;
+}
+
+.buttonProfil a
+{
+  color: #353f55;
+  font-size: 25px;
+  transition: 0.3s all ease;
+}
+
+.buttonProfil a:hover
+{
+  color: #b4dbbf;
+}
+
+
+
+.buttonProfil hr
+{
+  height: 2px;
+  background-color: #b4dbbf;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 30px;
 }
 
 

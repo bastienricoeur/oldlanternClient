@@ -8,3 +8,11 @@ myApp.factory('GetProfil', function($http, APPLINK) {
 
   return _profFactory;
 });
+
+myApp.factory('DelProfFac', function($http, APPLINK) {
+  return {
+    deleteProfil: function() {
+      return $http.delete(APPLINK+'/api/v1/user');
+    }
+  }
+});
