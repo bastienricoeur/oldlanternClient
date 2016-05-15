@@ -39,11 +39,6 @@ function($scope,$location,GetProfil,UpdProfFac,DelProfFac,UserAuthFactory) {
 
   };
 
-  $scope.myCarts = function()
-  {
-    alert('mes cartes');
-  };
-
   $scope.myLastCom = function()
   {
     alert('mes dernières commandes');

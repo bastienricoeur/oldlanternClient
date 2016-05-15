@@ -1,5 +1,5 @@
 var myApp = angular.module('ngclient', ['ngRoute']);
-myApp.constant('APPLINK','https://oldlantern.herokuapp.com');
+myApp.constant('APPLINK','http://localhost:3001');
 myApp.config(function($routeProvider, $httpProvider) {
   $httpProvider.interceptors.push('TokenInterceptor');
   $routeProvider
@@ -33,6 +33,12 @@ myApp.config(function($routeProvider, $httpProvider) {
     access: {
       requiredLogin: true
     }
+  }).when('/mycarts', {
+    templateUrl: 'partials/carts.html',
+    controller: 'CartsCtrl',
+    access: {
+      requiredLogin: true
+    }
   }).when('/page2', {
     templateUrl: 'partials/page2.html',
     controller: 'Page2Ctrl',
@@ -61,7 +67,7 @@ myApp.run(function($rootScope, $window, $location, AuthenticationFactory,GetProf
       if (!AuthenticationFactory.userRole) AuthenticationFactory.userRole = $window.sessionStorage.userRole;
     }
   });
-  
+
   $rootScope.$on('$routeChangeSuccess', function(event, nextRoute, currentRoute) {
     $rootScope.showMenu = AuthenticationFactory.isLogged;
     $rootScope.role = AuthenticationFactory.userRole;

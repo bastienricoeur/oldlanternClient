@@ -702,10 +702,11 @@ a
   margin-top: 70px;
 }
 
-#contenerProfil span
+#contenerProfil h1
 {
   font-size: 44px;
   font-family: "LobsterTwo";
+  font-weight: normal;
 }
 
 #contenerProfil hr
@@ -725,7 +726,6 @@ a
   text-align: left;
 
 }
-
 
 #contenuInfoProfil hr
 {
@@ -786,6 +786,65 @@ a
 #renUp
 {
   font-size: 20px;
+}
+
+/**********  Page Cartes    ***************************************************/
+
+#contenerCarts
+{
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+  position: absolute;
+
+}
+#contenerCarts h1
+{
+  font-size: 44px;
+  font-family: "LobsterTwo";
+  font-weight: normal;
+
+}
+
+#contenerCarts hr
+{
+  height: 2px;
+  background-color: #b4dbbf;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.contenerTab
+{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.contenerTab table
+{
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse:collapse;
+  font-size: 20px;
+  color: #353f55;
+
+}
+
+.contenerTab th
+{
+  font-family: "LobsterTwo";
+  font-weight: normal;
+}
+
+
+.contenerTab th,td{
+  border-bottom: 2px solid #b4dbbf;
+  width: 20%;
+  height: 30px;
 }
 
 
@@ -1097,5 +1156,15 @@ input:focus ~ .highlight {
     .square
     {
         width: 100%;
+    }
+}
+
+/********** Media Queries Tab *****************/
+
+@media screen and (max-width: 635px)
+{
+    .hideMob
+    {
+        display: none;
     }
 }
