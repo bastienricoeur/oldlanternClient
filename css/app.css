@@ -444,9 +444,10 @@ a
 .row {
 	width: calc(100% - 60px);
         margin-left: 30px;
-        margin-top: 50px;
+        margin-top: 20px;
         margin-bottom: 50px;
         height: auto;
+        position: absolute;
 }
 
 .square
@@ -480,7 +481,27 @@ a
     display: none;
 }
 
+.square:focus .squareImg
+{
+    display: none;
+}
+
+.square:active .squareImg
+{
+    display: none;
+}
+
 .square:hover .squareHover
+{
+    display: block;
+}
+
+.square:focus .squareHover
+{
+    display: block;
+}
+
+.square:active .squareHover
 {
     display: block;
 }
@@ -503,24 +524,30 @@ a
 
 .clear { clear : both ; }
 
-
+#rechProd
+{
+  margin-bottom: 20px;
+}
 .imgProduct
 {
     height: calc(100% - 40px);
     width: calc(100% - 40px);
     margin-top: 20px;
     margin-left: 20px;
-    background-position: center center;
-    background-size: 100%;
-    background-repeat: no-repeat;
+}
 
+.imgProduct img
+{
+  height: 100%;
+  width: 100%;
 }
 
 .titleProduct
 {
     text-align: center;
+    font-family: "LobsterTwo";
     margin-top: 40px;
-    font-size: 20px;
+    font-size: 24px;
     color: white;
 }
 
@@ -528,7 +555,7 @@ a
 {
     text-align: right;
     margin-right: 20px;
-    font-size: 18px;
+    font-size: 20px;
     color: white;
 }
 
@@ -682,6 +709,7 @@ a
   height: 3px;
   background-color: #b4dbbf;
   position: fixed;
+  z-index: 99
 }
 
 .panelHLProf
@@ -880,6 +908,15 @@ a
 {
   color: #b4dbbf;
 }
+
+/**********  Page New product    ***************************************************/
+
+.group textarea
+{
+  width: 300px;
+  height: 80px;
+}
+
 
 /********** Input Google Material Design ***************************************/
 
@@ -1113,6 +1150,21 @@ input:focus ~ .highlight {
     .panelHR
     {
         width: 100%;
+    }
+
+    .panelHLProf
+    {
+      width: 100%;
+    }
+
+    .panelHRProf
+    {
+      width: 100%;
+    }
+
+    #contenerButtonProfil
+    {
+      margin-top: 0;
     }
 
     .contenerSignIn

@@ -1,29 +1,29 @@
-<div class="container" ng-controller="HomeCtrl">
-  <div class="page-header">
-    <h3>This is from {{ name }}</h3>
+<section class="mainDiv firstMain" ng-controller="ProductCtrl">
+  <div class="borderTopNav"></div>
+
+  <div class="row" >
+    <input ng-model='filterProd' placeholder="Recherche un produit" id="rechProd">
+    <div ng-repeat='product in filtered = (products | filter:filterProd)' class="square">
+      <div class="squareContaint squareImg">
+        <div class="imgProduct"><img ng-src="{{product.attribute.img}}" alt="{{product.attribute.nom}}"/></div>
+      </div>
+      <div class="squareContaint squareHover square-blue">
+        <div class="borderCT borderCadre borderCadreWhite"></div>
+        <div class="borderCB borderCadre borderCadreWhite"></div>
+        <div class="borderCL borderCadre borderCadreWhite"></div>
+        <div class="borderCR borderCadre borderCadreWhite"></div>
+        <div class="cercleTL cercleCadre cercleCadreWhite"></div>
+        <div class="cercleTR cercleCadre cercleCadreWhite"></div>
+        <div class="cercleBL cercleCadre cercleCadreWhite"></div>
+        <div class="cercleBR cercleCadre cercleCadreWhite"></div>
+        <div class="contenuCadre">
+          <div class="titleProduct">{{product.attribute.nom}}</div>
+          <div class="priceProduct">{{product.attribute.prix}} €</div>
+          <div class="detailProduct"><a>details</a></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="clear"></p>
   </div>
-
-
-  <p class="lead">This app is scaffolded by
-    <code>slush-ng</code></p>
-
-  <p class="lead">This app uses <code>Bootstrap</code> for styling. If you are looking to add functional Bootstrap components, refer <a href="http://angular-ui.github.io/bootstrap/" target="_blank">UI Bootstrap</a>.
-  </p>
-
-  <p class="lead">This app is baked in with
-    <ul>
-      <li>Gulp - A task runner</li>
-      <li>Bower - A client side dependency manager</li>
-    </ul>
-  </p>
-
-  <p class="lead">This app comes integrated with
-    <code>angular-route</code>,
-    <code>controllers</code>, a sample
-    <code>directive</code> and a sample
-    <code>filter</code>
-  </p>
-
-  <p class="lead">This app also has a sample <code>factory</code> layer, that can be used to interact with RESTful services (includes an example too).</p>
-
-</div>
+</section>

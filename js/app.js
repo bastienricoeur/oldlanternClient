@@ -17,7 +17,13 @@ myApp.config(function($routeProvider, $httpProvider) {
     }
   }).when('/', {
     templateUrl: 'partials/home.html',
-    controller: 'HomeCtrl',
+    controller: 'ProductCtrl',
+    access: {
+      requiredLogin: true
+    }
+  }).when('/newprod', {
+    templateUrl: 'partials/newproduct.html',
+    controller: 'ProductCtrl',
     access: {
       requiredLogin: true
     }
