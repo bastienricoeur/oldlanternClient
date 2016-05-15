@@ -39,15 +39,15 @@ myApp.config(function($routeProvider, $httpProvider) {
     access: {
       requiredLogin: true
     }
-  }).when('/page2', {
-    templateUrl: 'partials/page2.html',
-    controller: 'Page2Ctrl',
+  }).when('/newcart', {
+    templateUrl: 'partials/newcart.html',
+    controller: 'CartsCtrl',
     access: {
       requiredLogin: true
     }
-  }).when('/page3', {
-    templateUrl: 'partials/page3.html',
-    controller: 'Page3Ctrl',
+  }).when('/listusr', {
+    templateUrl: 'partials/listusers.html',
+    controller: 'UsersCtrl',
     access: {
       requiredLogin: true
     }

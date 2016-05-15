@@ -816,12 +816,35 @@ a
   margin-top: 5px;
 }
 
+
 .contenerTab
 {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+}
+
+.toolTab
+{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.toolTab a{
+  color:#353f55;
+  font-size: 18px;
+  transition: 0.3s all ease;
+}
+
+.toolTab a:hover{
+  color:#b4dbbf;
+}
+
+.toolTab a i {
+  margin-right: 5px;
 }
 
 .contenerTab table
@@ -843,10 +866,20 @@ a
 
 .contenerTab th,td{
   border-bottom: 2px solid #b4dbbf;
-  width: 20%;
+  width: 18%;
   height: 30px;
 }
 
+.buttonDelCart a
+{
+  color: #353f55;
+  transition: 0.3s all ease;
+}
+
+.buttonDelCart a:hover
+{
+  color: #b4dbbf;
+}
 
 /********** Input Google Material Design ***************************************/
 
@@ -1082,6 +1115,14 @@ input:focus ~ .highlight {
         width: 100%;
     }
 
+    .contenerSignIn
+    {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+    }
+
 }
 
 @media screen and (max-width: 444px)
@@ -1166,5 +1207,17 @@ input:focus ~ .highlight {
     .hideMob
     {
         display: none;
+    }
+}
+
+/********** Media Queries input *****************/
+
+@media screen and (max-width: 523px)
+{
+    .contenerSignUp
+    {
+      width: 100%;
+      margin:0;
+      margin-top: 2px;
     }
 }
