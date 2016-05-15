@@ -1,5 +1,5 @@
-myApp.controller("ProductCtrl", ['$scope','$location','ListProducts','TypesProduct','CreateProdFact',
-function($scope,$location,ListProducts,TypesProduct,CreateProdFact) {
+myApp.controller("ProductCtrl", ['$scope','$window','$location','ListProducts','TypesProduct','CreateProdFact',
+function($scope,$window,$location,ListProducts,TypesProduct,CreateProdFact) {
   $scope.products = [];
 
   ListProducts.getProducts().then(function(data) {
@@ -24,7 +24,7 @@ function($scope,$location,ListProducts,TypesProduct,CreateProdFact) {
     var typeart = $scope.newProd.typearticle.id;
     if (nom !== undefined && desc !== undefined && prix !== undefined && nbexemp !== undefined && img !== undefined && typeart !== undefined) {
 
-        CreateProdFact.insert(nom, desc, prix, nbexemp, img, typeart).success(function(data) {
+      CreateProdFact.insert(nom, desc, prix, nbexemp, img, typeart).success(function(data) {
 
         $location.path("/");
       }).error(function(status) {
@@ -34,5 +34,88 @@ function($scope,$location,ListProducts,TypesProduct,CreateProdFact) {
       alert('Veuillez remplir tous les champs du formulaire');
     }
   };
+
+
+}
+]);
+
+myApp.controller("ProductDetCtrl", ['$scope','$location','$window','$routeParams','DetailProdFact','UpdateProdFact','TypesProduct','UpdateQteFact','CreateCommandeFact',
+function($scope,$location,$window,$routeParams,DetailProdFact,UpdateProdFact,TypesProduct,UpdateQteFact,CreateCommandeFact) {
+  $scope.prodDet= [];
+  $scope.uptQte = {
+  };
+  DetailProdFact.getDetails($routeParams.id).then(function(data) {
+    $scope.prodDet = data.data.data;
+    $scope.uptQte.qte=$scope.prodDet[0].attribute.nbExemp;
+  });
+
+  $scope.stockEpuise = function(nb)
+  {
+    if(nb==0){return true}else {return false}
+  }
+
+  $scope.typesProd = [];
+
+  TypesProduct.getTypes().then(function(data) {
+    $scope.typesProd = data.data.data;
+  });
+
+  $scope.uptProd = {
+  };
+
+  $scope.uptateProd = function() {
+    var nom = $scope.uptProd.nom;
+    var desc = $scope.uptProd.description;
+    var prix = $scope.uptProd.prix;
+    var nbexemp = $scope.uptProd.nbexemp;
+    var img = $scope.uptProd.urlImg;
+    var typeart = $scope.uptProd.typearticle.id;
+    if (nom !== undefined && desc !== undefined && prix !== undefined && nbexemp !== undefined && img !== undefined && typeart !== undefined) {
+
+      UpdateProdFact.update($routeParams.id,nom, desc, prix, nbexemp, img, typeart).success(function(data) {
+
+        $location.path("/");
+      }).error(function(status) {
+        alert('Invalid credentials');
+      });
+    } else {
+      alert('Veuillez remplir tous les champs du formulaire');
+    }
+  };
+
+
+  $scope.uptQte = function(){
+    var qte = $scope.uptQte.qte;
+    if(qte !== undefined){
+      UpdateQteFact.updatequantite($routeParams.id,qte).success(function(data) {
+
+        $window.location.reload();
+      }).error(function(status) {
+        alert('Invalid credentials');
+      });
+    }
+  };
+
+  $scope.com={
+  };
+  $scope.com.qte=1;
+
+  $scope.comStore=[];
+  $scope.commandeProd = function(){
+    var qte=$scope.com.qte;
+    if(qte !==undefined)
+    {
+      if($window.sessionStorage.com==undefined)
+      {
+        var date=new Date();
+        CreateCommandeFact.insert(date).then(function(data) {
+          $scope.comStore=data.data.data;
+          $window.sessionStorage.com=$scope.comStore.id;
+        });
+      }
+      
+    }
+  };
+
 }
 ]);

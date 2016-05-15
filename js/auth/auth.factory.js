@@ -24,6 +24,7 @@ myApp.factory('UserAuthFactory', function($window, $location, $http, Authenticat
       if (AuthenticationFactory.isLogged) {
         AuthenticationFactory.isLogged = false;
         delete $window.sessionStorage.token;
+        delete $window.sessionStorage.com
         $location.path("/login");
       }
     }

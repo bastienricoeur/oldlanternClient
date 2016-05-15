@@ -21,6 +21,18 @@ myApp.config(function($routeProvider, $httpProvider) {
     access: {
       requiredLogin: true
     }
+  }).when('/detail/:id', {
+    templateUrl: 'partials/detailProduct.html',
+    controller: 'ProductDetCtrl',
+    access: {
+      requiredLogin: true
+    }
+  }).when('/uptproduct/:id', {
+    templateUrl: 'partials/updateproduct.html',
+    controller: 'ProductDetCtrl',
+    access: {
+      requiredLogin: true
+    }
   }).when('/newprod', {
     templateUrl: 'partials/newproduct.html',
     controller: 'ProductCtrl',
