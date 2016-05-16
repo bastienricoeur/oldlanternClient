@@ -27,9 +27,3 @@ function fermerMenu()
   $('#menuButton').removeClass('is-active');
 
 }
-
-function scrollTo() {
-  $('html, body').animate({
-    scrollTop: $("#loginSecondSec").offset().top
-  }, 1000);
-}

@@ -39,8 +39,8 @@ function($scope,$window,$location,ListProducts,TypesProduct,CreateProdFact) {
 }
 ]);
 
-myApp.controller("ProductDetCtrl", ['$scope','$location','$window','$routeParams','DetailProdFact','UpdateProdFact','TypesProduct','UpdateQteFact','CreateCommandeFact',
-function($scope,$location,$window,$routeParams,DetailProdFact,UpdateProdFact,TypesProduct,UpdateQteFact,CreateCommandeFact) {
+myApp.controller("ProductDetCtrl", ['$scope','$location','$window','$routeParams','DetailProdFact','UpdateProdFact','TypesProduct','UpdateQteFact','CreateContenuFact',
+function($scope,$location,$window,$routeParams,DetailProdFact,UpdateProdFact,TypesProduct,UpdateQteFact,CreateContenuFact) {
   $scope.prodDet= [];
   $scope.uptQte = {
   };
@@ -100,20 +100,20 @@ function($scope,$location,$window,$routeParams,DetailProdFact,UpdateProdFact,Typ
   };
   $scope.com.qte=1;
 
-  $scope.comStore=[];
   $scope.commandeProd = function(){
+
     var qte=$scope.com.qte;
     if(qte !==undefined)
     {
-      if($window.sessionStorage.com==undefined)
+      if($window.sessionStorage.com!==undefined)
       {
-        var date=new Date();
-        CreateCommandeFact.insert(date).then(function(data) {
-          $scope.comStore=data.data.data;
-          $window.sessionStorage.com=$scope.comStore.id;
+        CreateContenuFact.insert($window.sessionStorage.com,$routeParams.id,qte).success(function(data) {
+
+          $location.path("/panier");
+        }).error(function(status) {
+          alert('Invalid credentials');
         });
       }
-      
     }
   };
 

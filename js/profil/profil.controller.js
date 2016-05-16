@@ -39,9 +39,5 @@ function($scope,$location,GetProfil,UpdProfFac,DelProfFac,UserAuthFactory) {
 
   };
 
-  $scope.myLastCom = function()
-  {
-    alert('mes dernières commandes');
-  };
 }
 ]);

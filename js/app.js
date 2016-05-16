@@ -1,5 +1,5 @@
 var myApp = angular.module('ngclient', ['ngRoute']);
-myApp.constant('APPLINK','http://localhost:3001');
+myApp.constant('APPLINK','https://oldlantern.herokuapp.com');
 myApp.config(function($routeProvider, $httpProvider) {
   $httpProvider.interceptors.push('TokenInterceptor');
   $routeProvider
@@ -66,6 +66,18 @@ myApp.config(function($routeProvider, $httpProvider) {
   }).when('/listusr', {
     templateUrl: 'partials/listusers.html',
     controller: 'UsersCtrl',
+    access: {
+      requiredLogin: true
+    }
+  }).when('/panier', {
+    templateUrl: 'partials/panier.html',
+    controller: 'CommandeCtrl',
+    access: {
+      requiredLogin: true
+    }
+  }).when('/final', {
+    templateUrl: 'partials/final.html',
+    controller: 'CommandeCtrl',
     access: {
       requiredLogin: true
     }

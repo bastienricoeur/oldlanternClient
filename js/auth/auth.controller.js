@@ -1,5 +1,5 @@
-myApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'UserAuthFactory', 'AuthenticationFactory',
-function($scope, $window, $location, UserAuthFactory, AuthenticationFactory) {
+myApp.controller('LoginCtrl', ['$scope', '$window', '$location', 'UserAuthFactory', 'AuthenticationFactory','CreateCommandeFact',
+function($scope, $window, $location, UserAuthFactory, AuthenticationFactory,CreateCommandeFact) {
   $scope.user = {
   };
   $scope.login = function() {
@@ -12,7 +12,13 @@ function($scope, $window, $location, UserAuthFactory, AuthenticationFactory) {
         AuthenticationFactory.isLogged = true;
 
         $window.sessionStorage.token = data.token;
-        
+
+        var date=new Date();
+        CreateCommandeFact.insert(date).then(function(data) {
+          $scope.comStore=data.data.data;
+          $window.sessionStorage.com=$scope.comStore.id;
+        });
+
         $location.path("/");
       }).error(function(status) {
         alert('Erreur de mot de passe ou d\'identifiant');
