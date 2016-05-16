@@ -22,7 +22,7 @@ myApp.config(function($routeProvider, $httpProvider) {
       requiredLogin: true
     }
   }).when('/detail/:id', {
-    templateUrl: 'partials/detailProduct.html',
+    templateUrl: 'partials/detailproduct.html',
     controller: 'ProductDetCtrl',
     access: {
       requiredLogin: true
